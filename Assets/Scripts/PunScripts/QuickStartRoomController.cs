@@ -1,14 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
 using UnityEngine;
-using Photon.Pun;
-using System;
 
 public class QuickStartRoomController : MonoBehaviourPunCallbacks
 {
+    #region Fields
     [SerializeField]
     private int multiplayerSceneIndex;
-
+    #endregion
+    #region Unity Methods
     public override void OnEnable()
     {
         PhotonNetwork.AddCallbackTarget(this);
@@ -17,7 +16,8 @@ public class QuickStartRoomController : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.RemoveCallbackTarget(this);
     }
-
+    #endregion
+    #region Custom Methods
     public override void OnJoinedRoom()
     {
         print("Joined Room");
@@ -32,4 +32,5 @@ public class QuickStartRoomController : MonoBehaviourPunCallbacks
             PhotonNetwork.LoadLevel(multiplayerSceneIndex);
         }
     }
+    #endregion
 }

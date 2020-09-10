@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnEnemyPoint : MonoBehaviour
 {
+    #region Fields
     public float spawntime = 1;
     public GameObject Enemy;
     private float currtime = 0;
@@ -11,6 +10,8 @@ public class SpawnEnemyPoint : MonoBehaviour
     private GameObject spawendobj;
     float extrahealth = 0;
     float num = 0;
+    #endregion
+    #region Unity Methods
     void Update()
     {
         currtime += Time.deltaTime;
@@ -31,4 +32,5 @@ public class SpawnEnemyPoint : MonoBehaviour
             enemiecout = 0;
         }
     }
+    #endregion
 }

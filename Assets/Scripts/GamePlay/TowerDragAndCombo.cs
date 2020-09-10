@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TowerDragAndCombo : MonoBehaviour
 {
-
+    #region Fields
     private float startPosX;
     private float startPosY;
     public bool isBeingHeld = false;
@@ -12,6 +10,8 @@ public class TowerDragAndCombo : MonoBehaviour
     public GameObject combotarget = null;
     public Transform currspawn;
     public GameObject spawn = null;
+    #endregion
+    #region Unity Methods
     private void Start()
     {
         currspawn = GetComponent<Tower>().spawnpos;
@@ -96,4 +96,5 @@ public class TowerDragAndCombo : MonoBehaviour
             }
         }
     }
+    #endregion
 }

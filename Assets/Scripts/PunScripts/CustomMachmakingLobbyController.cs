@@ -1,13 +1,12 @@
 ﻿using Photon.Pun;
-using System.Collections;
+using Photon.Realtime;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Photon.Realtime;
-using System.IO;
 
 public class CustomMachmakingLobbyController : MonoBehaviourPunCallbacks
 {
+    #region Fields
     [SerializeField]
     private GameObject lobbyconnectbutton;
     [SerializeField]
@@ -24,7 +23,8 @@ public class CustomMachmakingLobbyController : MonoBehaviourPunCallbacks
     private Transform roomscontainer;
     [SerializeField]
     private GameObject roomListingPrefab;
-
+    #endregion
+    #region Unity Methods
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -133,6 +133,6 @@ public class CustomMachmakingLobbyController : MonoBehaviourPunCallbacks
         lobbyPanel.SetActive(false);
         PhotonNetwork.LeaveLobby();
     }
-
+    #endregion
 
 }

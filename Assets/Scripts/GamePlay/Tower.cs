@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 public class Tower : MonoBehaviour
 {
-
+    #region Fields
     public GameObject bullet;
     public float range;
     public int lvl = 1;
@@ -18,6 +15,8 @@ public class Tower : MonoBehaviour
 
     public float spawntime = 1;
     private float currtime = 0;
+    #endregion
+    #region Unity Methods
     private void Start()
     {
         transform.GetChild(0).gameObject.SetActive(true);
@@ -80,4 +79,5 @@ public class Tower : MonoBehaviour
         Gizmos.DrawSphere(transform.position, range);
 
     }
+    #endregion
 }

@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnTower : MonoBehaviour
 {
-
+    #region Fields
+    #endregion
+    #region Unity Methods
+    #endregion
 }

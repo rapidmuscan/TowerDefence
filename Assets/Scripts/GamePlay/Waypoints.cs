@@ -1,8 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Waypoints : MonoBehaviour
 {
+    #region Fields
     public Transform[] waypoints;
+    #endregion
+    #region Unity Methods
+    #endregion
 }

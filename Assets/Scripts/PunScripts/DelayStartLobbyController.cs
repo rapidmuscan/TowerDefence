@@ -1,12 +1,11 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DelayStartLobbyController : MonoBehaviourPunCallbacks
 {
+    #region Fields
     [SerializeField]
     private GameObject quickstartButton;
     [SerializeField]
@@ -15,7 +14,8 @@ public class DelayStartLobbyController : MonoBehaviourPunCallbacks
     private int roomsize;
     bool customroom = false;
     public InputField RoomNameInput;
-    // Start is called before the first frame update
+    #endregion
+    #region Custom Methods
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -77,4 +77,5 @@ public class DelayStartLobbyController : MonoBehaviourPunCallbacks
         quickstartButton.SetActive(true);
         PhotonNetwork.LeaveRoom();
     }
+    #endregion
 }

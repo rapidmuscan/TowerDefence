@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Main : MonoBehaviour
 {
+    #region Fields
     public static Main Instance;
 
     public Web Web;
@@ -14,7 +13,8 @@ public class Main : MonoBehaviour
     public string RoomName = "";
 
     public GameObject UserProfile;
-    // Start is called before the first frame update
+    #endregion
+    #region Unity Methods
     void Start()
     {
         Instance = this; 
@@ -22,5 +22,5 @@ public class Main : MonoBehaviour
         UserInfo = GetComponent<UserInfo>();
         DontDestroyOnLoad(gameObject);
     }
-
+    #endregion
 }

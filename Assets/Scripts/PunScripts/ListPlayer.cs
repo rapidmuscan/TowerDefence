@@ -1,21 +1,17 @@
 ﻿using Photon.Pun;
-using Photon.Realtime;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using UnityEngine;
-using System;
+using UnityEngine.UI;
 public class ListPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
+    #region Fields
     public int num = 0;
+    #endregion
+    #region Unity Methods
     void Start()
     {
         PhotonNetwork.LocalPlayer.NickName = Main.Instance.UserInfo.UserName;   
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (num == 1)
@@ -31,4 +27,5 @@ public class ListPlayer : MonoBehaviour
         }
         
     }
+    #endregion
 }

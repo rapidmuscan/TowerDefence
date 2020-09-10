@@ -1,15 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Login : MonoBehaviour
 {
+    #region Fields
     public Text ErrorField;
     public InputField ussernameInput;
     public InputField PasswordInput;
     public Button loginButton;
-    // Start is called before the first frame update
+    #endregion
+    #region Unity Methods
     void Start()
     {
         loginButton.onClick.AddListener(()=> {
@@ -18,8 +18,9 @@ public class Login : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //void Update()
+    //{
+
+    //}
+    #endregion
 }

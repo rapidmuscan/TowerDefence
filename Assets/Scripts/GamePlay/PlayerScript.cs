@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    #region Fields
     public int score = 100;
-
+    #endregion
+    #region Unity Methods
     private void Update()
     {
         //    if (score >= 10)
@@ -25,7 +25,8 @@ public class PlayerScript : MonoBehaviour
 
                     curobj.GetComponent<SpawnPoint>().SpawnTower();
                 }
-                if (curobj.tag == "Tower") {
+                if (curobj.tag == "Tower")
+                {
                     if (hit.collider.gameObject.GetComponent<Tower>().lvl < 100)
                     {
                         hit.collider.gameObject.GetComponent<Tower>().lvl += 1;
@@ -41,8 +42,10 @@ public class PlayerScript : MonoBehaviour
             }
 
         }
-    //}
+        //}
     }
+    #endregion
+
 }
 
 

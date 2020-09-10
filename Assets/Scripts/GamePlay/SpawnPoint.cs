@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
+    #region Fields
     public GameObject towertospawn;
     public GameObject currtower = null;
+    #endregion
+    #region Unity Methods
     void Start()
     {
-
         gameObject.GetComponent<SpriteRenderer>().color = new Color(120, 120, 120, 0.10f);
         currtower = Instantiate(towertospawn, transform.position, Quaternion.identity);
         currtower.GetComponent<Tower>().spawnpos = transform;
@@ -17,10 +17,6 @@ public class SpawnPoint : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnMouseOver()
     {
@@ -40,4 +36,5 @@ public class SpawnPoint : MonoBehaviour
             GetComponent<Collider2D>().enabled = !GetComponent<Collider2D>().enabled;
         
     }
+    #endregion
 }

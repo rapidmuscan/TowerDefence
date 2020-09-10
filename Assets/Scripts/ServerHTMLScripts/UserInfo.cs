@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using SimpleJSON;
 using UnityEngine;
-using UnityEngine.UI;
-using System;
-using SimpleJSON;
 public class UserInfo : MonoBehaviour
 {
+    #region Fields
     public string UserID { get; private set; }
     public string UserName { get; private set; }
 
@@ -19,6 +16,8 @@ public class UserInfo : MonoBehaviour
     bool check4 = false;
     bool check5 = false;
     bool check6 = false;
+    #endregion
+    #region Unity Methods
     private void Start()
     {
         UserID = "";
@@ -28,25 +27,9 @@ public class UserInfo : MonoBehaviour
         Coins = "";
         jsonString = "";
     }
-
-    public void SetCredentials(string username, string userpassword)
-    {
-        UserName = username;
-        UserPassword = userpassword;
-        StartCoroutine(Main.Instance.Web.GetCoinsAndLevel(UserName, UserPassword));
-
-    }
-    public void SetID(string id)
-    {
-        UserID = id;
-    }
-    public void BuyItem(string itemID)
-    {
-        StartCoroutine(Main.Instance.Web.BuyItem(itemID));
-    }
     private void Update()
     {
-        if(jsonString != "")
+        if (jsonString != "")
         {
             UpdateJsonDataLevelCoin();
         }
@@ -94,6 +77,24 @@ public class UserInfo : MonoBehaviour
 
 
     }
+    #endregion
+    #region Custom Methods
+    public void SetCredentials(string username, string userpassword)
+    {
+        UserName = username;
+        UserPassword = userpassword;
+        StartCoroutine(Main.Instance.Web.GetCoinsAndLevel(UserName, UserPassword));
+
+    }
+    public void SetID(string id)
+    {
+        UserID = id;
+    }
+    public void BuyItem(string itemID)
+    {
+        StartCoroutine(Main.Instance.Web.BuyItem(itemID));
+    }
+
     void UpdateJsonDataLevelCoin()
     {
         JSONObject itemInfoJson = new JSONObject();
@@ -106,5 +107,5 @@ public class UserInfo : MonoBehaviour
         Coins = itemInfoJson["coins"];
 
     }
-
+    #endregion
 }

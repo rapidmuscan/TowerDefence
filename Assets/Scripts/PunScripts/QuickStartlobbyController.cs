@@ -1,18 +1,18 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class QuickStartlobbyController : MonoBehaviourPunCallbacks
 {
+    #region Fields
     [SerializeField]
     private GameObject quickstartButton;
     [SerializeField]
     private GameObject quickCancelButton;
     [SerializeField]
     private int roomsize;
-    // Start is called before the first frame update
+    #endregion
+    #region Custom Methods
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -50,4 +50,5 @@ public class QuickStartlobbyController : MonoBehaviourPunCallbacks
         quickstartButton.SetActive(true);
         PhotonNetwork.LeaveRoom();
     }
+    #endregion
 }

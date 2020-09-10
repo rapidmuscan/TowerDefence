@@ -1,14 +1,12 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine;
-using System;
 
 public class DelayStartWaitingRoomController : MonoBehaviourPunCallbacks
 {
+    #region Fields
     private PhotonView photonView;
 
     [SerializeField]
@@ -37,7 +35,8 @@ public class DelayStartWaitingRoomController : MonoBehaviourPunCallbacks
     private float maxwaittime;
     [SerializeField]
     private float maxgamefullwaittime;
-
+    #endregion
+    #region Unity Methods
     private void Start()
     {
         photonView = GetComponent<PhotonView>();
@@ -49,7 +48,8 @@ public class DelayStartWaitingRoomController : MonoBehaviourPunCallbacks
 
         
     }
-
+    #endregion
+    #region Custom Methods
     private void playercountupdate()
     {
         playercount = PhotonNetwork.PlayerList.Length;
@@ -159,4 +159,5 @@ public class DelayStartWaitingRoomController : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene(Menusceneindex);
     }
+    #endregion
 }

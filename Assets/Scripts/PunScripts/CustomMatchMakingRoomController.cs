@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class CustomMatchMakingRoomController : MonoBehaviourPunCallbacks
 {
+    #region Fields
     [SerializeField]
     private int multiplayersceneIndex;
     [SerializeField]
@@ -20,7 +21,8 @@ public class CustomMatchMakingRoomController : MonoBehaviourPunCallbacks
     private GameObject playerListingPrefab;
     [SerializeField]
     private Text roomNameDisplay;
-
+    #endregion
+    #region Custom Methods
     void ClearPlayerListings()
     {
         for (int i = playersContainer.childCount -1;i>=0;i--)
@@ -93,5 +95,5 @@ public class CustomMatchMakingRoomController : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveLobby();
         StartCoroutine(rejoinLobby());
     }
-
+    #endregion
 }

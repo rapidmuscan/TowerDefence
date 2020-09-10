@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Networking;
-using System.Collections;
+using UnityEngine.UI;
 
 // UnityWebRequest.Get example
 
@@ -10,6 +10,7 @@ using System.Collections;
 
 public class Web : MonoBehaviour
 {
+    #region Unity Methods
     void Start()
     {
         // A correct website page.
@@ -21,9 +22,9 @@ public class Web : MonoBehaviour
         //// A non-existing page.
         //StartCoroutine(GetDate("http://localhost/"));
     }
+    #endregion
 
-  
-
+    #region Custom Methods
     public IEnumerator GetDate(string uri)
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
@@ -233,5 +234,5 @@ public class Web : MonoBehaviour
             }
         }
     }
-
+    #endregion
 }

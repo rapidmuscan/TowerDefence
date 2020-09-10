@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
-using TMPro;
 
 public class LvlTowerShow : MonoBehaviour
 {
+    #region Fields
     GameObject parent;
-
+    #endregion
+    #region Unity Methods
     private void Start()
     {
         parent = transform.parent.gameObject;
@@ -17,4 +17,6 @@ public class LvlTowerShow : MonoBehaviour
     {
         GetComponent<TextMeshPro>().text = ((int)parent.GetComponent<Tower>().lvl).ToString();
     }
+    #endregion
+
 }

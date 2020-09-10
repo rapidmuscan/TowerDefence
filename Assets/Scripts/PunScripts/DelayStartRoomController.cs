@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Photon.Pun;
 
 public class DelayStartRoomController : MonoBehaviourPunCallbacks
 {
+    #region Fields
     [SerializeField]
     private int waitingroomsceneindex;
+    #endregion
+    #region Unity Methods
     public override void OnEnable()
     {
         PhotonNetwork.AddCallbackTarget(this);
@@ -16,10 +17,12 @@ public class DelayStartRoomController : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.RemoveCallbackTarget(this);
     }
-
+    #endregion
+    #region Custom Methods
     public override void OnJoinedRoom()
     {
         print("StartingGame");
         SceneManager.LoadScene(waitingroomsceneindex);
     }
+    #endregion
 }

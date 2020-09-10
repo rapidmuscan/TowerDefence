@@ -1,12 +1,10 @@
-﻿using System;
-using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class RoomButton : MonoBehaviour
 {
+    #region Fields
     [SerializeField]
     private Text nameText;
     [SerializeField]
@@ -15,7 +13,8 @@ public class RoomButton : MonoBehaviour
     private string roomName;
     private int roomSize;
     private int _playerCount;
-
+    #endregion
+    #region Custom Methods
     public void JoinRoomOnClick()
     {
         PhotonNetwork.JoinRoom(roomName);
@@ -30,4 +29,5 @@ public class RoomButton : MonoBehaviour
         nameText.text = name;
         sizeText.text = playerCount + "/" + maxPlayers;
     }
+    #endregion
 }

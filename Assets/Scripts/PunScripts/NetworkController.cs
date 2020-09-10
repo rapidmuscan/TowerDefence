@@ -1,24 +1,22 @@
-﻿using System.Collections;
-using Photon.Pun;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using Photon.Pun;
 
 public class NetworkController : MonoBehaviourPunCallbacks
 {
-    // Start is called before the first frame update
+    #region Unity Methods
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
     }
 
+    // void Update()
+    // {
+
+    //  }
+    #endregion
+    #region Custom Methods
     public override void OnConnectedToMaster()
     {
-        print("we are connected " + PhotonNetwork.CloudRegion );
+        print("we are connected " + PhotonNetwork.CloudRegion);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    #endregion
 }

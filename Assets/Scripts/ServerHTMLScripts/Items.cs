@@ -1,14 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using SimpleJSON;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
-using SimpleJSON;
 public class Items : MonoBehaviour
 {
+    #region Fields
     public GameObject PrefabofItem;
     Action<string> _createItemsCallback;
-    // Start is called before the first frame update
+    #endregion
+    #region Unity Methods
     void Start()
     {
         //_createItemsCallback = (jsonArrayString) =>
@@ -19,6 +20,8 @@ public class Items : MonoBehaviour
         //CreateItems();
         refill();
     }
+    #endregion
+    #region Custom Methods
     public void refill()
     {
         _createItemsCallback = (jsonArrayString) =>
@@ -80,4 +83,5 @@ public class Items : MonoBehaviour
 
 
     }
+    #endregion
 }

@@ -1,26 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
+    #region Fields
     public float speed;
     public int damage = 10;
 
     public GameObject currtarget;
+
     public float range;
     public float areaofdamage;
-    public LayerMask EnemyLayer;
-    public GameObject effect;
-    private Vector2 target;
 
+    public LayerMask EnemyLayer;
+
+    public GameObject effect;
+
+    private Vector2 target;
+    #endregion
+    #region Unity Methods
     private void Start()
     {
         currtarget = transform.parent.GetComponent<Tower>().currtarget;
-        
-        
-
-        
     }
 
     private void Update()
@@ -71,4 +71,7 @@ public class EnemyBullet : MonoBehaviour
         Gizmos.DrawSphere(transform.position, range);
 
     }
+    #endregion
+    #region Custom Methods
+    #endregion
 }
