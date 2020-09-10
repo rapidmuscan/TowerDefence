@@ -1,14 +1,23 @@
 ﻿using System;
 using UnityEngine;
+using EZCameraShake;
 
 public class Enemy : MonoBehaviour
 {
     #region Fields
+    private AudioSource _deathSound;
+    [SerializeField] private AudioClip _deathFx;
+
     public float health = 1;
     public float speed;
+    public int particleDestroyTime;
 
     public float scorehealth;
-    public GameObject effect;
+     private Transform _parentObject;
+    public GameObject dieEffect;
+    public GameObject hitEffect;
+    public GameObject coinEffect;
+    public int hitDestroyTime;
 
     private Waypoints Wpoints;
     private int waypointIndex;
@@ -19,10 +28,11 @@ public class Enemy : MonoBehaviour
     #region Unity Methods
     private void Start()
     {
+        _deathSound = GameObject.FindGameObjectWithTag("EnemyDeathSound").GetComponent<AudioSource>();
         Wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
         scorehealth = health;
-
         distancetoend = 99;
+        _parentObject = GameObject.FindGameObjectWithTag("Particles").GetComponent<Transform>();
     }
 
     private void Update()
@@ -53,7 +63,7 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                Instantiate(effect, transform.position, Quaternion.identity);
+              //  Instantiate(dieEffect, transform.position, Quaternion.identity);
                 Destroy(gameObject);
                 print(TimeSpan.FromSeconds((int)GameObject.FindGameObjectWithTag("Time").GetComponent<time>().timeinsec).ToString());
             }
@@ -62,19 +72,46 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+
+            SoundFx(_deathFx);
+
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().score += (int)(scorehealth * 2);
-            Instantiate(effect, transform.position, Quaternion.identity);
+           var _dieEffect = Instantiate(dieEffect, transform.position, Quaternion.identity);
+
+            _dieEffect.transform.SetParent(_parentObject);
+            Destroy(_dieEffect, particleDestroyTime);
+
+            var _coinEffect = Instantiate(coinEffect, transform.position, Quaternion.identity);
+            _coinEffect.transform.SetParent(_parentObject);
+
+            Destroy(_coinEffect, particleDestroyTime);
             Destroy(gameObject);
         }
 
 
     }
 
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            if (health <= 0)
+            {
+                CameraShaker.Instance.ShakeOnce(2f, 2f, 0.5f, 0.5f);
+            }
+           var _hitEffect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            _hitEffect.transform.SetParent(_parentObject);
+            Destroy(_hitEffect, hitDestroyTime);
+        }
+    }
 
 
 
     #endregion
     #region Custom Methods
+    public void SoundFx(AudioClip _fire)
+    {
+        _deathSound.PlayOneShot(_fire);
+    }
     #endregion
 }

@@ -3,6 +3,7 @@
 public class SpawnPoint : MonoBehaviour
 {
     #region Fields
+    [SerializeField] private Transform _parentTower;
     public GameObject towertospawn;
     public GameObject currtower = null;
     #endregion
@@ -11,6 +12,7 @@ public class SpawnPoint : MonoBehaviour
     {
         gameObject.GetComponent<SpriteRenderer>().color = new Color(120, 120, 120, 0.10f);
         currtower = Instantiate(towertospawn, transform.position, Quaternion.identity);
+        currtower.transform.SetParent(_parentTower);
         currtower.GetComponent<Tower>().spawnpos = transform;
         //currtower.GetComponent<TowerDragAndCombo>().spawn = gameObject;
         GetComponent<Collider2D>().enabled = !GetComponent<Collider2D>().enabled;
@@ -32,8 +34,9 @@ public class SpawnPoint : MonoBehaviour
 
         currtower = Instantiate(towertospawn, transform.position, Quaternion.identity);
         currtower.GetComponent<Tower>().spawnpos = transform;
+        currtower.transform.SetParent(_parentTower);
         //currtower.GetComponent<TowerDragAndCombo>().spawn = gameObject;
-            GetComponent<Collider2D>().enabled = !GetComponent<Collider2D>().enabled;
+        GetComponent<Collider2D>().enabled = !GetComponent<Collider2D>().enabled;
         
     }
     #endregion

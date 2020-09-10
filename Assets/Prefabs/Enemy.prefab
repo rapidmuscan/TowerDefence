@@ -54,6 +54,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -101,10 +102,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cfc5b85be7bd1b4b9725608670ed0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deathFx: {fileID: 8300000, guid: 003b1b0017d8c1b4bb6526abf22c2ee8, type: 3}
   health: 10
   speed: 2
+  particleDestroyTime: 2
   scorehealth: 0
-  effect: {fileID: 7973048912749103012, guid: fbf3c5bdab5ccae41a6b9b3be05d4ad9, type: 3}
+  dieEffect: {fileID: 3802003994290185635, guid: 4bf4406ceec290046b47cc5115db838c,
+    type: 3}
+  hitEffect: {fileID: 2104617641806688816, guid: 03d91819fa4723f41b59bf56f05afbb9,
+    type: 3}
+  coinEffect: {fileID: 2931142222534008771, guid: 7979d6cdba231a84a9783aff10b73e44,
+    type: 3}
+  hitDestroyTime: 2
   distancetonextpoint: 0
   distancetoend: 100
 --- !u!61 &1393253900381514635
@@ -117,7 +126,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -207,6 +216,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

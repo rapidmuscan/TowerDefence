@@ -54,6 +54,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -271,6 +272,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -318,6 +320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd9562bae2d8a54fa5d1245d50e24cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fireSound: {fileID: 0}
+  _fire: {fileID: 8300000, guid: 40d32c12d4074c443955717e7c6d282d, type: 3}
   bullet: {fileID: 8818111137644010833, guid: c302c4b1597681f43978c7275d3e0744, type: 3}
   range: 4
   lvl: 1

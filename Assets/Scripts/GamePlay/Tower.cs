@@ -2,6 +2,8 @@
 public class Tower : MonoBehaviour
 {
     #region Fields
+     private AudioSource _fireSound;
+    [SerializeField] private AudioClip _fire;
     public GameObject bullet;
     public float range;
     public int lvl = 1;
@@ -19,7 +21,9 @@ public class Tower : MonoBehaviour
     #region Unity Methods
     private void Start()
     {
+        
         transform.GetChild(0).gameObject.SetActive(true);
+        _fireSound = GameObject.FindGameObjectWithTag("TowerShotSound").GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -53,6 +57,7 @@ public class Tower : MonoBehaviour
             if (currtime > spawntime)
             {
                 bulletshot = Instantiate(bullet, transform.position, Quaternion.identity);
+                SoundFx(_fire);
                 bulletshot.transform.SetParent(transform);
                 bulletshot.GetComponent<EnemyBullet>().damage = 10 + ((lvl - 1) * 10);
                 currtime = 0;
@@ -78,6 +83,12 @@ public class Tower : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(transform.position, range);
 
+    }
+    #endregion
+    #region CustomMethods
+    public void SoundFx(AudioClip _fire)
+    {
+        _fireSound.PlayOneShot(_fire);
     }
     #endregion
 }

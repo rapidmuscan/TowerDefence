@@ -13,7 +13,7 @@ public class EnemyBullet : MonoBehaviour
 
     public LayerMask EnemyLayer;
 
-    public GameObject effect;
+   // public GameObject effect;
 
     private Vector2 target;
     #endregion
@@ -47,7 +47,7 @@ public class EnemyBullet : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<Enemy>().health -= damage;
-            Instantiate(effect, transform.position, Quaternion.identity);
+       //     Instantiate(effect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         //if (other.CompareTag("Enemy"))
