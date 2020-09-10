@@ -330,7 +330,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   spawnpos: {fileID: 0}
-  timeBtwShots: 2
+  timeBtwShots: 1
   spawntime: 1
 --- !u!61 &8618042456931794431
 BoxCollider2D:
