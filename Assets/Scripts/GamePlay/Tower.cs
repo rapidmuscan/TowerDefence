@@ -8,14 +8,14 @@ public class Tower : MonoBehaviour
     public float range;
     public int lvl = 1;
     public GameObject currtarget = null;
-    private float timeBtwShots;
+    
     public float startTimeBtwShots;
     public LayerMask EnemyLayer;
     public Transform spawnpos;
     
     private GameObject bulletshot;
-
-    public float spawntime = 1;
+   [SerializeField] private float timeBtwShots;
+    public float spawntime;
     private float currtime = 0;
     #endregion
     #region Unity Methods
@@ -27,7 +27,7 @@ public class Tower : MonoBehaviour
     }
     private void Update()
     {
-        spawntime = 1 - (0.094f * lvl);
+        spawntime = timeBtwShots - (0.094f * lvl);
         if (currtarget == null) {
             
             Collider2D[] search = Physics2D.OverlapCircleAll(transform.position, range, EnemyLayer);

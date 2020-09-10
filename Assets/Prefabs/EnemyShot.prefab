@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1dd559e255254648bf17b5c0de079e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 8
   damage: 10
   currtarget: {fileID: 0}
   range: 4
@@ -141,4 +141,3 @@ MonoBehaviour:
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 256
-  effect: {fileID: 2082019165026108248, guid: 2fba1fda9c84c76459d13b9b1bd6d42e, type: 3}
