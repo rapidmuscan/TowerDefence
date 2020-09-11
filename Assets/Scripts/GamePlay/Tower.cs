@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-public class Tower : MonoBehaviour
+using Photon.Pun;
+public class Tower : MonoBehaviour, IPunObservable
 {
     #region Fields
      private AudioSource _fireSound;
@@ -89,6 +90,18 @@ public class Tower : MonoBehaviour
     public void SoundFx(AudioClip _fire)
     {
         _fireSound.PlayOneShot(_fire);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(lvl);
+        }
+        else if (stream.IsReading)
+        {
+            lvl = (int)stream.ReceiveNext();
+        }
     }
     #endregion
 }
