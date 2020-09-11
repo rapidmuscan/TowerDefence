@@ -10,12 +10,12 @@ public class SpawnPoint : MonoBehaviour
     #region Unity Methods
     void Start()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(120, 120, 120, 0.10f);
-        currtower = Instantiate(towertospawn, transform.position, Quaternion.identity);
-        currtower.transform.SetParent(_parentTower);
-        currtower.GetComponent<Tower>().spawnpos = transform;
-        //currtower.GetComponent<TowerDragAndCombo>().spawn = gameObject;
-        GetComponent<Collider2D>().enabled = !GetComponent<Collider2D>().enabled;
+        //gameObject.GetComponent<SpriteRenderer>().color = new Color(120, 120, 120, 0.10f);
+        //currtower = Instantiate(towertospawn, transform.position, Quaternion.identity);
+        //currtower.transform.SetParent(_parentTower);
+        //currtower.GetComponent<Tower>().spawnpos = transform;
+        ////currtower.GetComponent<TowerDragAndCombo>().spawn = gameObject;
+        //GetComponent<Collider2D>().enabled = !GetComponent<Collider2D>().enabled;
     }
 
     // Update is called once per frame
