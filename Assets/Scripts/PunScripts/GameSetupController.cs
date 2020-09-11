@@ -1,11 +1,11 @@
 ﻿using Photon.Pun;
 using System.IO;
 using UnityEngine;
+using EZCameraShake;
 public class GameSetupController : MonoBehaviour
 {
     #region Fields
-    public GameObject camera1;
-    public GameObject camera2;
+    public GameObject camera;
     #endregion
     #region Unity Methods
     private void Start()
@@ -24,15 +24,13 @@ public class GameSetupController : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), new Vector2(4, 0), Quaternion.identity);
-            camera1.SetActive(true);
-            camera1.tag = "MainCamera";
+            camera.GetComponent<CameraShaker>().RestPositionOffset = new Vector3(-4.8f,2.48f,0);
             //camera2.SetActive(true);
         }
         else if(!PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), new Vector2(-4,0), Quaternion.identity);
-            camera2.SetActive(true);
-            camera2.tag = "MainCamera";
+            camera.GetComponent<CameraShaker>().RestPositionOffset = new Vector3(24.66f, 2.48f, 0);
             //camera1.SetActive(true);
         }
     }

@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _deathSound = GameObject.FindGameObjectWithTag("EnemyDeathSound").GetComponent<AudioSource>();
-        Wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
+        Wpoints = transform.parent.GetComponent<EnemyParentSpawn>().Wpoints;
         scorehealth = health;
         distancetoend = 99;
         _parentObject = GameObject.FindGameObjectWithTag("Particles").GetComponent<Transform>();
