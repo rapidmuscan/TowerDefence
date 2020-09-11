@@ -25,7 +25,7 @@ public class GameSetupController : MonoBehaviour
         print("CreatingPlayer");
         if (PhotonNetwork.IsMasterClient)
         {
-            camera.GetComponent<CameraShaker>().RestPositionOffset = new Vector3(-4.8f,2.48f,0);
+            camera.GetComponent<CameraShaker>().RestPositionOffset = new Vector3(-2.14f, 2.48f,0);
             CameraRenderer.transform.localPosition = new Vector3(24.66f, 2.48f, 0);
             ObjectView.transform.localPosition = new Vector3(-6f, 4.5f,13.71f);
             //camera2.SetActive(true);
