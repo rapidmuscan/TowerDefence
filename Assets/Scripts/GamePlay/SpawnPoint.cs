@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-
+using Photon.Pun;
+using System.IO;
 public class SpawnPoint : MonoBehaviour
 {
     #region Fields
@@ -32,7 +33,8 @@ public class SpawnPoint : MonoBehaviour
     public void SpawnTower()
     {
 
-        currtower = Instantiate(towertospawn, transform.position, Quaternion.identity);
+        //currtower = Instantiate(towertospawn, transform.position, Quaternion.identity);
+        currtower = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Tower"), transform.position, Quaternion.identity);
         currtower.GetComponent<Tower>().spawnpos = transform;
         currtower.transform.SetParent(_parentTower);
         //currtower.GetComponent<TowerDragAndCombo>().spawn = gameObject;
