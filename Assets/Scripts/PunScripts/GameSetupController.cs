@@ -26,16 +26,16 @@ public class GameSetupController : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             camera.GetComponent<CameraShaker>().RestPositionOffset = new Vector3(-4.8f,2.48f,0);
-            CameraRenderer.transform.position = new Vector3(24.66f, 2.48f, 0);
-            ObjectView.transform.position = new Vector3(-14.92f, 3.81f,0);
+            CameraRenderer.transform.localPosition = new Vector3(24.66f, 2.48f, 0);
+            ObjectView.transform.localPosition = new Vector3(-6f, 4.5f,13.71f);
             //camera2.SetActive(true);
         }
         else if(!PhotonNetwork.IsMasterClient)
         {
             //PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), new Vector2(-4, 0), Quaternion.identity);
             camera.GetComponent<CameraShaker>().RestPositionOffset = new Vector3(24.66f, 2.48f, 0);
-            CameraRenderer.transform.position = new Vector3(-4.8f, 2.48f, 0);
-            ObjectView.transform.position = new Vector3(11.32f, 3.81f, 0);
+            CameraRenderer.transform.localPosition = new Vector3(-2.14f, 2.48f, 0);
+            ObjectView.transform.localPosition = new Vector3(19.7f, 4.5f, 13.71f);
             //camera1.SetActive(true);
         }
     }
