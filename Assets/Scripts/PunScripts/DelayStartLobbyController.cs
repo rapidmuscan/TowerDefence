@@ -20,7 +20,6 @@ public class DelayStartLobbyController : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.AutomaticallySyncScene = true;
         quickstartButton.SetActive(true);
-        
     }
     public void quickstart()
     {

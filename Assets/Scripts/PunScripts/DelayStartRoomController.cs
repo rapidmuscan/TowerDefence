@@ -22,7 +22,7 @@ public class DelayStartRoomController : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         print("StartingGame");
-        SceneManager.LoadScene(waitingroomsceneindex);
+        print(PhotonNetwork.CurrentRoom.Name);
     }
     #endregion
 }
